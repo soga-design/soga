@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import axios from "axios";
-import { setTokenCookie } from "../../../../utils/cookies";
+import { setTokenCookie } from "utils/cookies";
 
 const GET_GITHUB_ACCESS_TOKEN_URL =
   "https://github.com/login/oauth/access_token";

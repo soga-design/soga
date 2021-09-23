@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 import { Endpoints } from "@octokit/types";
-import { getTokenCookie } from "../utils/cookies";
+import { getTokenCookie } from "utils/cookies";
 
 type User = Endpoints["GET /user"]["response"]["data"];
 type Gists = Endpoints["GET /gists/public"]["response"]["data"];
