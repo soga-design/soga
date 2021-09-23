@@ -5,7 +5,7 @@ const TOKEN_NAME = "github_access_token";
 
 export const MAX_AGE = 60 * 60 * 24 * 30; // 30 days
 
-export function setTokenCookie(res: NextApiResponse, token: string) {
+export function setTokenCookie(res: NextApiResponse, token: string): void {
   const cookie = serialize(TOKEN_NAME, token, {
     maxAge: MAX_AGE,
     expires: new Date(Date.now() + MAX_AGE * 1000),
@@ -17,7 +17,7 @@ export function setTokenCookie(res: NextApiResponse, token: string) {
   res.setHeader("Set-Cookie", cookie);
 }
 
-export function getTokenCookie() {
+export function getTokenCookie(): string | undefined {
   if (typeof document === "undefined") return undefined;
   return parse(document.cookie || "")[TOKEN_NAME];
 }

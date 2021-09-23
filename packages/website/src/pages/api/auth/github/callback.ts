@@ -8,7 +8,7 @@ const GET_GITHUB_ACCESS_TOKEN_URL =
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
-) {
+): Promise<void> {
   try {
     const { code } = req.query;
     const {
