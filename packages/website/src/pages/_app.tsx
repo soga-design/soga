@@ -1,8 +1,8 @@
 import { Provider } from "react-redux";
 import type { AppProps } from "next/app";
+import { NextPage } from "next";
 
 import { store } from "../store";
-import { NextPage } from "next";
 
 const MyApp: NextPage<AppProps> = ({ Component, pageProps }) => {
   return (
