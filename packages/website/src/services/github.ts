@@ -3,16 +3,17 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { Endpoints } from "@octokit/types";
 import { getTokenCookie } from "utils/cookies";
 
-type User = Endpoints["GET /user"]["response"]["data"];
-type Gists = Endpoints["GET /gists/public"]["response"]["data"];
-type CreateGistParams = Endpoints["POST /gists"]["parameters"];
-type CreateGistResponse = Endpoints["POST /gists"]["response"]["data"];
-type UpdateGistParams = Endpoints["PATCH /gists/{gist_id}"]["parameters"];
-type UpdateGistResponse =
+export type User = Endpoints["GET /user"]["response"]["data"];
+export type Gists = Endpoints["GET /gists"]["response"]["data"];
+export type CreateGistParams = Endpoints["POST /gists"]["parameters"];
+export type CreateGistResponse = Endpoints["POST /gists"]["response"]["data"];
+export type UpdateGistParams =
+  Endpoints["PATCH /gists/{gist_id}"]["parameters"];
+export type UpdateGistResponse =
   Endpoints["PATCH /gists/{gist_id}"]["response"]["data"];
 
-const GITHUB_API_URL = "https://api.github.com/";
-const GIST_PER_PAGE = 100;
+export const GITHUB_API_URL = "https://api.github.com/";
+export const GIST_PER_PAGE = 100;
 
 export const githubApi = createApi({
   reducerPath: "github",
@@ -32,19 +33,18 @@ export const githubApi = createApi({
       query: () => "user",
     }),
     getGists: build.query<Gists, number | void>({
-      query: (page = 1) =>
-        `/gists/public?page=${page}&per_page=${GIST_PER_PAGE}`,
+      query: (page = 1) => `gists?page=${page}&per_page=${GIST_PER_PAGE}`,
     }),
     createGist: build.mutation<CreateGistResponse, CreateGistParams>({
       query: (params) => ({
-        url: "/gists",
+        url: "gists",
         method: "POST",
         body: JSON.stringify(params),
       }),
     }),
     updateGist: build.mutation<UpdateGistResponse, UpdateGistParams>({
       query: ({ gist_id, ...params }) => ({
-        url: `/gists/${gist_id}`,
+        url: `gists/${gist_id}`,
         method: "PATCH",
         body: JSON.stringify(params),
       }),
