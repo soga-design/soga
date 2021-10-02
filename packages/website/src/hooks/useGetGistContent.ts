@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useGetAllGists } from "./useGetAllGists";
+import { useGetAllGists } from "hooks/useGetAllGists";
 import { getGistContent } from "utils/gist";
 
 export const useGetGistContent = (id: string): string => {

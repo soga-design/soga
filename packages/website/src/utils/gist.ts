@@ -1,4 +1,4 @@
-import { Gists } from "../services/github";
+import { Gists } from "services/github";
 
 export interface ConvertedGist {
   id: string;

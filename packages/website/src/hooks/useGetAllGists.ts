@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { GIST_PER_PAGE, useGetGistsQuery } from "../services/github";
-import { ConvertedGist, convertGistsData } from "../utils/gist";
+import { GIST_PER_PAGE, useGetGistsQuery } from "services/github";
+import { ConvertedGist, convertGistsData } from "utils/gist";
 
 export const useGetAllGists = (): {
   gists: ConvertedGist[];
