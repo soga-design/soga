@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import axios from "axios";
+import { request } from "undici";
 import { setTokenCookie } from "utils/cookies";
 
 const GET_GITHUB_ACCESS_TOKEN_URL =
@@ -11,28 +11,28 @@ export default async function handler(
 ): Promise<void> {
   try {
     const { code } = req.query;
-    const {
-      data: { access_token },
-    } = await axios.post(
-      GET_GITHUB_ACCESS_TOKEN_URL,
-      {
+    const { body } = await request(GET_GITHUB_ACCESS_TOKEN_URL, {
+      method: "POST",
+      body: JSON.stringify({
         client_id: process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID,
         client_secret: process.env.GITHUB_CLIENT_SECRET,
         code,
+      }),
+      headers: {
+        "content-type": "application/json",
+        Accept: "application/json",
       },
-      {
-        headers: {
-          Accept: "application/json",
-        },
-      }
-    );
+    });
+    const { access_token, ...otherInfo } = await body.json();
+
     if (access_token) {
       setTokenCookie(res, access_token);
       res.redirect("/");
     } else {
-      // TODO error handle
+      throw new Error(`Didn't get token, get ${JSON.stringify(otherInfo)}`);
     }
   } catch (e) {
+    console.log(e);
     // TODO error handle
   }
 }
