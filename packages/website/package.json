@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@octokit/types": "^6.32.0",
+    "@octokit/types": "^6.34.0",
     "@reduxjs/toolkit": "^1.6.1",
     "cookie": "^0.4.1",
     "next": "11.1.2",
