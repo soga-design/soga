@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query/react";
-import { githubApi } from "./services/github";
+import { githubApi } from "services/github";
 
-export const store = configureStore({
+const store = configureStore({
   reducer: {
     [githubApi.reducerPath]: githubApi.reducer,
   },
@@ -11,3 +11,5 @@ export const store = configureStore({
 });
 
 setupListeners(store.dispatch);
+
+export default store;

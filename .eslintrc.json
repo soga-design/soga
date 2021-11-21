@@ -1,0 +1,25 @@
+{
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "airbnb-typescript",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/jsx-runtime",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "parserOptions": {
+    "project": ["./packages/*/tsconfig.json"]
+  },
+  "rules": {
+    "react/jsx-props-no-spreading": "off",
+    "react/function-component-definition": [
+      "error",
+      { "namedComponents": "arrow-function" }
+    ],
+    "react/prop-types": "off",
+    "react/require-default-props": "off"
+  }
+}

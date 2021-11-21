@@ -1,14 +1,15 @@
-import { Provider } from "react-redux";
 import type { AppProps } from "next/app";
-import { NextPage } from "next";
-import { store } from "../store";
+import ThemeProvider from "components/ThemeProvider";
+import { Provider as ReduxProvider } from "react-redux";
+import { getThemeCookie } from "utils/cookies";
+import store from "../store";
 
-const MyApp: NextPage<AppProps> = ({ Component, pageProps }) => {
-  return (
-    <Provider store={store}>
+const MyApp = ({ Component, pageProps }: AppProps) => (
+  <ReduxProvider store={store}>
+    <ThemeProvider theme={getThemeCookie()}>
       <Component {...pageProps} />
-    </Provider>
-  );
-};
+    </ThemeProvider>
+  </ReduxProvider>
+);
 
 export default MyApp;

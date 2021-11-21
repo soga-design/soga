@@ -1,23 +1,27 @@
-import { serialize, parse } from "cookie";
+import { setCookie, parseCookies, destroyCookie } from "nookies";
 import type { NextApiResponse } from "next";
+import { Theme } from "../constants";
 
 const TOKEN_NAME = "github_access_token";
+const TOKEN_MAX_AGE = 60 * 60 * 24 * 30; // 30 days
 
-export const MAX_AGE = 60 * 60 * 24 * 30; // 30 days
+const THEME_NAME = "theme";
 
-export function setTokenCookie(res: NextApiResponse, token: string): void {
-  const cookie = serialize(TOKEN_NAME, token, {
-    maxAge: MAX_AGE,
-    expires: new Date(Date.now() + MAX_AGE * 1000),
+export const setTokenCookie = (res: NextApiResponse, token: string) => {
+  setCookie({ res }, TOKEN_NAME, token, {
+    maxAge: TOKEN_MAX_AGE,
     secure: process.env.NODE_ENV === "production",
     path: "/",
     sameSite: "lax",
   });
+};
 
-  res.setHeader("Set-Cookie", cookie);
-}
+export const getTokenCookie = () => parseCookies()?.[TOKEN_NAME];
+export const destroyTokenCookie = () => destroyCookie(null, TOKEN_NAME);
 
-export function getTokenCookie(): string | undefined {
-  if (typeof document === "undefined") return undefined;
-  return parse(document.cookie || "")[TOKEN_NAME];
-}
+export const setThemeCookie = (mode: Theme) =>
+  setCookie({}, THEME_NAME, mode, {
+    path: "/",
+  });
+
+export const getThemeCookie = () => parseCookies()?.[THEME_NAME] as Theme;

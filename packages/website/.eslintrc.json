@@ -1,3 +1,6 @@
 {
-  "extends": ["../../.eslintrc", "next/core-web-vitals"]
+  "extends": ["../../.eslintrc.json", "plugin:@next/next/recommended"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  }
 }
