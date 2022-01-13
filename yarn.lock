@@ -129,10 +129,10 @@
   resolved "https://registry.yarnpkg.com/@next/env/-/env-12.0.5-canary.6.tgz#6e66a2706b6b0c114859bf7f16be571c4ccb7bc7"
   integrity sha512-m3TVv43FH0vL19gm0MzGR6GpN9K+9RqCAHYHBCqpaukRtofyb8VSdNYLBkmUwma1s+Kz0gojLpXtxOVoB7KODA==
 
-"@next/eslint-plugin-next@12.0.5-canary.6":
-  version "12.0.5-canary.6"
-  resolved "https://registry.yarnpkg.com/@next/eslint-plugin-next/-/eslint-plugin-next-12.0.5-canary.6.tgz#f700fb3cb08b171fd031366de59f6c57c50227d9"
-  integrity sha512-AKBXRwkK7aZdm6QTstZMMzR89BaHi0tI/ZT+ETFvdLnAVx5TUvosSQUBiib0gGPqL1YdvY9BtYTh71mydBebmw==
+"@next/eslint-plugin-next@12.0.8":
+  version "12.0.8"
+  resolved "https://registry.yarnpkg.com/@next/eslint-plugin-next/-/eslint-plugin-next-12.0.8.tgz#8bb026891dd3b61053e13289efcb163f66ea3dac"
+  integrity sha512-bf7O0Mvs1h3vIdbbi0hijG+6YG3ED/ebQfmUltrQSgGtHVKGADDoE2qQhwE+mrvxuz9BD8y3mJDOSy0PBLKGBA==
   dependencies:
     glob "7.1.7"
 
@@ -1210,12 +1210,12 @@ eslint-config-airbnb@19.0.0:
     object.assign "^4.1.2"
     object.entries "^1.1.5"
 
-eslint-config-next@12.0.5-canary.6:
-  version "12.0.5-canary.6"
-  resolved "https://registry.yarnpkg.com/eslint-config-next/-/eslint-config-next-12.0.5-canary.6.tgz#3a0044f83eea1cbe39a9c2447ddac98edbaf17d7"
-  integrity sha512-h1+Ozxw1pLz2zmyx0gJuF8P31OyO2MIGtYgJb/wRJV5vBVWZK9tWdzlkq9u2B9LT1Im1ewK/X63kitI9J6YFSg==
+eslint-config-next@12.0.8:
+  version "12.0.8"
+  resolved "https://registry.yarnpkg.com/eslint-config-next/-/eslint-config-next-12.0.8.tgz#7a15114230db97d1bc727fc5db2f469416b62e0f"
+  integrity sha512-H40jvqy/yeku3r9D556ALLaM3ZmS55hj9/MTK59fWbzsqTaYlybSkUmIBG0ZFEnBazr0NnBGwrYA5cnsFYR7RQ==
   dependencies:
-    "@next/eslint-plugin-next" "12.0.5-canary.6"
+    "@next/eslint-plugin-next" "12.0.8"
     "@rushstack/eslint-patch" "^1.0.8"
     "@typescript-eslint/parser" "^5.0.0"
     eslint-import-resolver-node "^0.3.4"
